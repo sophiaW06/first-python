@@ -2255,29 +2255,96 @@ import tkinter
 
 """
 
-root = tkinter.Tk()
+# root = tkinter.Tk()
 
-def printInput():
-    print("Hi")
+# def printInput():
+#     print("HI")
 
-label = tkinter.Label(root, text = "I am a label widget")
-button = tkinter.Button(root, text = "I am a button")
-label.pack()
-button.pack()
-
-
-
-window_colour = "#2f88ff"
-root.config(bg=window_colour)
-inputtxt = tkinter.Text(root, height = 5, width = 20)
-inputtxt.pack()
-
-printButton = tkinter.Button(root, text = "Print", command = printInput)
-printButton.pack()
+# label = tkinter.Label(root, text = "I am a label widget")
+# button = tkinter.Button(root, text = "I am a button")
+# label.pack()
+# button.pack()
 
 
 
-root.geometry("400x200")
-root.resizable(10,10)
-root.title("TextBox Input")
-root.mainloop()
+# window_colour = "#2f88ff"
+# root.config(bg=window_colour)
+# inputtxt = tkinter.Text(root, height = 5, width = 20)
+# inputtxt.pack()
+
+# printButton = tkinter.Button(root, text = "Print", command = printInput)
+# printButton.pack()
+
+
+
+# root.geometry("400x200")
+# root.resizable(10,10)
+# root.title("TextBox Input")
+# root.mainloop()
+
+"""
+=========== WEEK 7 SESSION 2 ============
+
+
+
+"""
+
+# import tkinter as tk
+# window= tk.Tk()
+# frame = tk.Frame(window)
+# tk.Label(frame, text="Pack Demo of side and fill").pack()
+# tk.Button(frame, text="A").pack(side=tk.LEFT, fill=tk.Y)
+
+# tk.Button(frame, text="B").pack(side=tk.TOP, fill=tk.X)
+
+# tk.Button(frame, text="C").pack(side=tk.RIGHT,fill=tk.NONE)
+
+# tk.Button(frame, text="D").pack(side=tk.TOP, fill=tk.BOTH)
+
+# tk.Label (window, text="Pack Demo of expand").pack()
+# tk.Button(window, text="I do not expand").pack()
+# tk.Button(window, text="I do not fill x but I expand").pack(expand = 1)
+
+# tk.Button(window, text="I fill x and expand").pack(fill=tk.X, expand=1)
+
+
+# frame.pack()
+
+# window.mainloop()
+
+# ======================================
+
+import tkinter as tk
+parent = tk.Tk()
+parent.title('Find & Replace')
+tk.Label(parent, text="Find:").grid(row=0, column=0, sticky='e')
+tk.Entry(parent, width=60).grid(row=0, column=1, padx=2, pady=2, sticky='we', columnspan=9)
+
+tk.Label(parent, text = "Replace:").grid(row=1, column=0, sticky= tk.W)
+tk.Entry(parent, width=60).grid(row=1, column =1, padx=2, pady=2, sticky= tk.W , columnspan =9)
+
+tk.Button(parent, text="Find").grid( row=0,
+                                     column=10, sticky='e' + 'w', padx=2, pady=2)
+tk.Button(parent, text="Find All").grid(row=1,
+                                         column=10, sticky='e' + 'w', padx=2
+                                         )
+
+tk.Button(parent, text="Replace").grid(row=2, column=10, sticky='e' + 'w', padx=2)
+tk.Button(parent, text="Replace All").grid(row=3, column=10, sticky='e' + 'w', padx=2)
+
+tk.Checkbutton(parent, text='Match whole word only').grid(row=2, column=1, columnspan=4, sticky='w')
+tk.Checkbutton(parent, text='Match Case').grid(row=3, column=1, columnspan=4, sticky='w')
+
+tk.Checkbutton(parent, text='Wrap around').grid(row=4,
+                                                 column=1, columnspan=4, sticky='w'
+                                                 )
+tk.Label(parent, text="Direction:").grid(row=2, column=6, sticky='w')
+tk.Radiobutton(parent, text='Up', value=1).grid(row=3,
+                                                 column=6, columnspan=6, sticky='w'
+                                                 )
+
+tk.Radiobutton(parent, text='Down', value=2).grid(row=3,
+                                                   column=7, columnspan=2, sticky='e'
+                                                   )
+
+parent.mainloop()
