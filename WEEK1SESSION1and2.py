@@ -2175,30 +2175,77 @@
 
 import tkinter 
 
-window = tkinter.Tk()
-window.title("My first GUI programming")
-window.minsize(500,300)
+# window = tkinter.Tk()
+# window.title("My first GUI programming")
+# window.minsize(500,300)
 
-label = tkinter.Label(window, text="Scientists reveal the HI", font = ("Calibri 30 bold"))
-label.pack()
+# label = tkinter.Label(window, text="Scientists reveal the HI", font = ("Calibri 30 bold"))
+# label.pack()
 
-button = tkinter.Button(window, text="Hi")
-button.pack()
+# button = tkinter.Button(window, text="Hi")
+# button.pack()
 
-TextEntry = tkinter.Entry(window, width = 30).pack()
-checkButton = tkinter.Checkbutton(window, text ="True", bg = "pink", bd = 1)
-checkButton.pack()
+# TextEntry = tkinter.Entry(window, width = 30).pack()
+# checkButton = tkinter.Checkbutton(window, text ="Hi", bg = "pink", bd = 1)
+# checkButton.pack()
 
 
-optionList = ["Scientists", "Reveal", "The", "Hi"]
-tkvar = tkinter.StringVar(window)
-tkvar.set("Select a country")
-tkinter.OptionMenu(window, tkvar, *optionList).pack()
+# optionList = ["Scientists", "Reveal", "The", "Hi"]
+# tkvar = tkinter.StringVar(window)
+# tkvar.set("Select a country")
+# tkinter.OptionMenu(window, tkvar, *optionList).pack()
             
+# tkinter.Radiobutton(window,
+#                     text= "Scientists",
+#                     variable="house", 
+#                     value= 1).pack()
+
+# tkinter.Radiobutton(window,
+#                     text= "Hi",
+#                     variable="house", 
+#                     value= 2).pack()
+
+# scrollBar = tkinter.Scrollbar(orient=tkinter.VERTICAL,
+#                               command=tkinter.Scrollbar.set).pack()
+
+# frame = tkinter.Frame(window)
+# frame.pack()
+
+# bottomframe = tkinter.Frame(window)
+# bottomframe.pack( side=tkinter.BOTTOM)
+
+# pinkbutton = tkinter.Button(frame, text="HI", foreground= "pink")
+# pinkbutton.pack( side = tkinter.LEFT)
 
 
-window.mainloop()
+# window.mainloop()
 
+
+
+# CREATE A GUI SHOWING YOUR NAME AND YOUR NUMBER
+
+# window = tkinter.Tk()
+# window.title("DOXXING MYSELF")
+# window.minsize(500,300)
+# window.configure(bg= "blue")
+
+
+# nameLabel = tkinter.Label(window, text= "Name",
+#                           bg = "orange",
+#                           foreground= "white")
+# nameLabel.grid(row=0, column=1)
+# nameEntry = tkinter.Entry(window)
+# nameEntry.grid(row=0, column=2)
+
+
+# numberLabel = tkinter.Label(window, text= "Number",
+#                             bg= "orange",
+#                             foreground= "white")
+# numberLabel.grid(row=1, column=1)
+# numberEntry = tkinter.Entry(window)
+# numberEntry.grid(row=1, column=2)
+
+# window.mainloop()
 """
 
 =============== TKINTER ===============
@@ -2207,3 +2254,30 @@ window.mainloop()
 
 
 """
+
+root = tkinter.Tk()
+
+def printInput():
+    print("Hi")
+
+label = tkinter.Label(root, text = "I am a label widget")
+button = tkinter.Button(root, text = "I am a button")
+label.pack()
+button.pack()
+
+
+
+window_colour = "#2f88ff"
+root.config(bg=window_colour)
+inputtxt = tkinter.Text(root, height = 5, width = 20)
+inputtxt.pack()
+
+printButton = tkinter.Button(root, text = "Print", command = printInput)
+printButton.pack()
+
+
+
+root.geometry("400x200")
+root.resizable(10,10)
+root.title("TextBox Input")
+root.mainloop()
