@@ -2347,4 +2347,10 @@ tk.Radiobutton(parent, text='Down', value=2).grid(row=3,
                                                    column=7, columnspan=2, sticky='e'
                                                    )
 
+root = tk.Tk()
+tk.Button(root, text="Absolute Placement").place(x=20, y=10)
+tk.Button(root, text="Relative").place(relx=0.8, rely=0.2, relwidth=0.5, width=10, anchor=tk.NE)
+root.mainloop()
+                                          
+
 parent.mainloop()
