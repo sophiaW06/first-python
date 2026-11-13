@@ -1868,11 +1868,342 @@
 # else: 
 #     print("Both are not in my list")
 
+# print("happy new year")
+
+
+# """
+# --------------- WEEK 6 SESSION 1 -----------------
+
+# --------------- EXTERNAL LIBRARIES ------------------
+
+# - collection of modules / block of functions
+# - carry out certain tasks 
+
+# -- STANDARD MODULES: --
+
+# - datetime, time = module that presents current time, month and year
+# - os = interacting with the operating system
+# - random = generates random numbers 
+# - statistics = provides statistics functions like mean, median, mode and variance
+# - sqlite3 = SQLite relational database access (provides an interface to SQLite, lightweight disk-based database)
+# - string = process characters and string
+# - csv = work with spreadsheets
+# - sys = command-line argument processing
+
+# -- OPERATING SYSTEM (OS): --
+
+# - module helps with OS interaction through various functions
+# - can help in working with directories
+# - directory = collection of files and sub-directories
+
+# -- WORKING WITH OS: -- 
+
+# - Get the name of our current working directory: 
+
+# import os                             #imports the library 
+# print(os.getwcd())                                            # function in os
+# print("This is the current working directory", os.getcwd())
+
+# Output: '/home/student'/
+
+# -- GET THE NAME OF THE OS: --
+
+# - prints name of the family
+# - IEEE specifies for OS
+
+# import os
+# print("The Portable Operating System Interface (POSIX)", os.name)     # family of standards specified by the IEEE Computer Society, maintains compatibility between OS
+
+# Output: posix
+
+# -- LIST DIRECTORY (listdir): -- 
+
+# - checks every file and directory present in current director
+
+# print("List of all files in directory", os.listdir())
+# print("List of all files in directory", os.listdir('/'))
+
+# -- GET PROCESS ID -- 
+
+# - function which returns process id of current process
+# - print("The current process ID", os.getpid())
+
+# -- CREATE A DIRECTORY (mkdir) --
+
+# - basic function
+# - creates new directory where command executed 
+
+# import os 
+# os.mkdir("/home/runner/PythonDevClass/newFolder")
+
+# """
+
+# # ======== MATPLOTLIB: BAR CHART =========
+# # NEED TO INSTALL TURTLE AND MATPLOTLIB EXTENSIONS 
+
+# """
+
+# import matplotlib.pyplot as plt 
+
+# # Sample data 
+# departments = ['HR', 'IT', 'Sales', 'Finance']
+# employees = [10, 25, 15, 12]
+
+# # Create bar chart 
+# plt.bar(departments, employees, color='skyblue')
+
+# #Add labels and title
+# plt.xlabel('Departments')
+# plt.ylabel('Number of Employees')
+# plt.title('Employee Distribution by Department')
+
+# # Show chart 
+# plt.show()
+# """
+
+# """
+
+# ============= HISTOGRAM ==============
+
+# e.g. 
+
+# import matplotlib.pyplot as plt
+
+# # Sample data (ages)
+# ages = [22, 25, 30, 30, 31, 34, 35, 36, 40, 41, 42, 45, 46, 50, 51, 52]
+
+# # Create histogram
+# plt.hist(ages, bins=5, color='lightgreen', edgecolor='black')
+
+# # Add labels and title 
+# plt.xlabel('Age Range')
+# plt.ylabel('Frequency')
+# plt.title('Age Distribution of Employees')
+
+# # Show Chart 
+# plt.show()
+
+# =============== PIE CHART ==================
+
+# import matplotlib.pyplot as plt
+
+# # Sample data
+# departments = ['HR', 'IT', 'Sales', 'Finance']
+# sizes = [10, 25, 15, 12]
+# colors = ['gold', 'skyblue', 'lightgreen', 'lightcoral']
+
+# # Create pie chart
+# plt.pie(sizes, labels=departments, colors=colors, autopct='%1.1f%%', startangle=90)
+
+# #Equal aspect ratio ensures pie is drawn as a circle
+# plt.axis('equal')
+# plt.title('Employee Percentage by Department')
+
+# # Show chart
+# plt.show()
+
+# ============== MULTIPLE PLOTS ===============
+
+# import matplotlib.pyplot as plt
+
+# x = [1, 2, 3, 4, 5]
+# y = [2, 4, 6, 8, 10]
+
+# plt.subplot(2,2,1)
+# plt.bar(x,y)
+# plt.title("Bar Chart")
+# plt.subplot(2, 2, 2)
+# plt.hist(y)
+# plt.title("Histogram")
+
+
+# ================= TURTLE LIBRARY ================
+
+# - enables users to create pictures and shapes by providing them with a virtual canvas
+# - 1. initialise a variable to represent the turtle object
+# - e.g import turtle
+# Oogway = turtle.Turtle()
+# - can draw a line from your current position to any other arbitrary position on the screen
+#  - uses the cartesian coordinate system
+# - to move the turtle to any other area on the screen, use goto()
+# - initial position is (0,0)
+#   - e.g. Oogway.goto(100,100)     #goto(+X , +Y)
+# - Closing: turtle.done()
+
+
+# ============= BUILT-IN PYTHON LIBRARIES =============
+
+# - Sum()  = adds the items of an iterable       Sum(iterable, start)
+# - Sorted    = sorts any iterable sequence    Sorted(iterable, reverse)
+# - Map      = define a function applicable to iterable sequences        Map(function, iterable)
+
+# """
+
+
+# """
+
+# ============================= WEEK 6 SESSION 2 =================================
+
+# --------- LIBRARIES & TIME -----------
+
+# ============ METHODS OF IMPORT ================
+
+# 1. DIRECT
+# import random
+
+# mylist = ["umm", "yeah", "hah"]
+# print(random.choice(mylist))
+
+# 2. USING FROM
+
+# from random import choice
+
+# mylist = ["umm", "yeah", "hah"]
+# choice(mylist)
+
+# 3. INSIDE FUNCTION
+
+# mylist = ["umm", "yeah", "hah"]
+
+# def pick():
+#     import random
+#     return random.choice(mylist)
+
+# ============ IMPORT A MODULE WITH ANOTHER NAME =============
+
+# import mylibrary as "bee"
+
+# mylist = bee.pick()
+# print("My favourite word", mylist)
+
+
+# ============= BUILDING OWN LIBRARY ==============
+
+# 1. BUILD PYTHON CODE
+# 2. SAVE FILE AND GIVE IT A NAME IN A DIRECTORY
+
+# from random import choice 
+
+# places = ["etc", "this", "that"]
+
+# def pickLocation():
+#     return choice(places)
+
+# 3. OPEN ANOTHER PYTHON FILE WITHIN THE SAME DIRECTORY
+# 4. REFERENCE THE CODE
+
+# import mylibrary                 #the file you built 
+
+# place = mylibrary.pick()
+# print("Let's go to", place)
+
+# """
+
+# # import random
+
+# # mylist = ["umm", "yeah", "hah"]
+# # print(random.choice(mylist))
+
+
+# """
+# =================== REGULAR EXPRESSION (RE) LIBRARY =========================
+
+# - Regex / Regular Expression: 
+#     - defines a pattern for searching / manipulating strings 
+#     - can use a regex to match, search, replace and manipulate inside textual data 
+
+# e.g.
+# import re 
+# word = 'possibility' 
+# m = re.findall('s', word)
+# print("Number of pattern in the word: ", len(m))
+# print("The result of the regex matching",m)
+# #findall returns a list of all s in the word
+
+
+# =========== RE SPECIAL CHARACTERS AND SEQUENCE ============
+
+# - \A matches pattern only at the start of the string 
+# - \Z matches pattern only at the end of the string
+# - \d matches to any digit- short for character classes [0-9]
+# - \D matches to any non-digit - short for [^0-0]
+# - \s matches any whitespace character - short for character class [\t\n\x0b\r\f]
+# - \S matches any non-whitespace character - short for [^\t\n\x0b\r\f]
+# - \w matches any alphanumeric character - short for character class [a-zA-Z_0-9]
+# - \W matches any non-alphanumeric character - short for [^a-zA-Z_0-9]
+# - \b matches the empty string BUT only at the beginning or end of a word. 
+#    - matches a word boundary where a word character is [a-zA-Z0-9_]
+# - \B opposite of a \b, matches empty string, but only when it is not at the beginning / end of a word 
+
+# ============ REGEX METHODS ==============
+
+# - re.compile('pattern')     = compiles regex pattern provided as a string into a re.pattern object
+# - re.search(pattern,str)    = searches for occurrences of regex pattern inside target string, returns only the first match
+# - re.match(pattern, str)       = matches regex pattern at start of string, returns a match only if pattern is located at beginning of string 
+# - re.fullmatch(pattern, str)    = matches regex pattern to entire string
+# - re.findall(pattern, str)     = scans regex pattern through entire string, returns all matches
+# - re.finditer(pattern, str)   = scans regex pattern through entire string, returns an iterator yielding match objects   # watdatmean
+
+# ==== RE: FULL MATCH ===
+
+# - match regular expression pattern to the entire string from first-last char
+
+# === RE: MATCH ANY CHARACTER ===
+
+# - match any regex pattern at the start of the string
+
+# === RE: SEARCH() ===
+
+# - search for occurences of the regex pattern inside the target string and return only the first match
+
+# === RE: SPLIT() ===
+
+# - regex to split string on whitespaces
+
+# === RE: SUB ===
+
+# - regex for replacement, it replaces space with hyphen(-)
+
+
+# """
 
 """
 
-
+============== GRAPHICAL USER INTERFACE (GUI) =================
 
 """
 
-print("happy new year")
+import tkinter 
+
+window = tkinter.Tk()
+window.title("My first GUI programming")
+window.minsize(500,300)
+
+label = tkinter.Label(window, text="Scientists reveal the HI", font = ("Calibri 30 bold"))
+label.pack()
+
+button = tkinter.Button(window, text="Hi")
+button.pack()
+
+TextEntry = tkinter.Entry(window, width = 30).pack()
+checkButton = tkinter.Checkbutton(window, text ="True", bg = "pink", bd = 1)
+checkButton.pack()
+
+
+optionList = ["Scientists", "Reveal", "The", "Hi"]
+tkvar = tkinter.StringVar(window)
+tkvar.set("Select a country")
+tkinter.OptionMenu(window, tkvar, *optionList).pack()
+            
+
+
+window.mainloop()
+
+"""
+
+=============== TKINTER ===============
+
+
+
+
+"""

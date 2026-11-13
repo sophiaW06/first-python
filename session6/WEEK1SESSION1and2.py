@@ -1868,11 +1868,126 @@
 # else: 
 #     print("Both are not in my list")
 
-
-"""
-
+# print("happy new year")
 
 
 """
+--------------- WEEK 6 SESSION 1 -----------------
 
-print("happy new year")
+--------------- EXTERNAL LIBRARIES ------------------
+
+- collection of modules / block of functions
+- carry out certain tasks 
+
+-- STANDARD MODULES: --
+
+- datetime, time = module that presents current time, month and year
+- os = interacting with the operating system
+- random = generates random numbers 
+- statistics = provides statistics functions like mean, median, mode and variance
+- sqlite3 = SQLite relational database access (provides an interface to SQLite, lightweight disk-based database)
+- string = process characters and string
+- csv = work with spreadsheets
+- sys = command-line argument processing
+
+-- OPERATING SYSTEM (OS): --
+
+- module helps with OS interaction through various functions
+- can help in working with directories
+- directory = collection of files and sub-directories
+
+-- WORKING WITH OS: -- 
+
+- Get the name of our current working directory: 
+
+import os                             #imports the library 
+print(os.getwcd())                                            # function in os
+print("This is the current working directory", os.getcwd())
+
+Output: '/home/student'/
+
+-- GET THE NAME OF THE OS: --
+
+- prints name of the family
+- IEEE specifies for OS
+
+import os
+print("The Portable Operating System Interface (POSIX)", os.name)     # family of standards specified by the IEEE Computer Society, maintains compatibility between OS
+
+Output: posix
+
+-- LIST DIRECTORY (listdir): -- 
+
+- checks every file and directory present in current director
+
+print("List of all files in directory", os.listdir())
+print("List of all files in directory", os.listdir('/'))
+
+-- GET PROCESS ID -- 
+
+- function which returns process id of current process
+- print("The current process ID", os.getpid())
+
+-- CREATE A DIRECTORY (mkdir) --
+
+- basic function
+- creates new directory where command executed 
+
+import os 
+os.mkdir("/home/runner/PythonDevClass/newFolder")
+
+"""
+
+# ======== MATPLOTLIB: BAR CHART =========
+
+"""
+
+import matplotlib.pyplot as plt 
+
+# Sample data 
+departments = ['HR', 'IT', 'Sales', 'Finance']
+employees = [10, 25, 15, 12]
+
+# Create bar chart 
+plt.bar(departments, employees, color='skyblue')
+
+#Add labels and title
+plt.xlabel('Departments')
+plt.ylabel('Number of Employees')
+plt.title('Employee Distribution by Department')
+
+# Show chart 
+plt.show()
+"""
+
+"""
+
+============= HISTOGRAM ==============
+
+e.g. 
+
+import matplotlib.pyplot as plt
+
+# Sample data (ages)
+ages = [22, 25, 30, 30, 31, 34, 35, 36, 40, 41, 42, 45, 46, 50, 51, 52]
+
+# Create histogram
+plt.hist(ages, bins=5, color='lightgreen', edgecolor='black')
+
+# Add labels and title 
+plt.xlabel('Age Range')
+plt.ylabel('Frequency')
+plt.title('Age Distribution of Employees')
+
+# Show Chart 
+plt.show()
+
+=============== PIE CHART ==================
+
+import matplotlib.pyplot as plt
+
+# Sample data
+departments = ['HR', 'IT', 'Sales', 'Finance]
+
+
+"""
