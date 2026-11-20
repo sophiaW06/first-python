@@ -1441,406 +1441,6 @@
 # """
 # ACTIVITY
 
-# 1) Write a polymorphic class for Pigeon and Sparrow with three methods: fly, eat and run.
-# Using for loop, call the created objects with their methods.
-
-# 2) Write a polymorphic class for fighter jet and Aeroplane with three methods take-off, passengers and landing.
-# Using for loop, call the created objects with their methods.
-# """
-# # 1 
-# class Pigeon(object):
-#     def fly(self):
-#         print("The pigeon is flying.")
-
-#     def eating(self):
-#         print("The pigeon can eat.")
-
-#     def running(self):
-#         print("The pigeon can run.")
-
-# class Sparrow(object):
-#     def fly(self):
-#             print("Sparrows can fly.")
-            
-#     def eating(self):
-#         print("Sparrows can eat.")
-
-#     def running(self):
-#         print("Sparrows cannot run but they can hop.")
-
-# p1 = Pigeon()
-# sp1 = Sparrow()
-
-# for birds in (p1, sp1):
-#     birds.fly()
-#     birds.eating()
-#     birds.running()
-
-
-# # 2 
-
-# """
-
-# --------- WEEK 4 SESSION 1 ---------
-# --------- INTRODUCTION TO OBJECT ORIENTED PROGRAMMING-3 ----------
-
-# GLOBAL and LOCAL VARIABLES
-
-# - attributes of a class = variables
-
-
-# - LOCAL:
-#     - class in a variable
-#     - can only be accessed inside the code block where it is defined 
-
-# e.g.
-
-# class Bird: 
-#       def fly(self)    <------ LOCAL VARIABLE
-#           message = "The Bird is flying"
-#           return message
-
-
-# - GLOBAL:
-#     - defined outside of any code block
-#     - accessed anywhere in the class 
-
-# e.g. 
-# # Creates class Bird
-# class Bird:
-#     message1 = "Global variable of Bird Class"   <----- GLOBAL VARIABLE
-
-#     def fly(self):
-#            message2 = "The Bird is flying"
-#            return message2
-
-# """
-
-# """
-
-# -----------  INHERITANCE  ------------
-
-# - allows us to define a class that inherits all methods and properites from another class 
-# - parent class is the class being inherited from (BASE CLASS):
-#            - any class can be a parent class 
-
-# e.g. 
-# class Person:
-#   def __init__(self, fname, lname):
-#     self.firstname = fname
-#     self.lastname = lname
-
-#   def printname(self):
-#   print(self.firstname, self.lastname)
-
-# # Use the Person class to create an object
-
-# x = Person("John","Doe")
-# x.printname()
-
-# - child class inherits from another class (DERIVED CLASS):
-#            - inherits the functionality from another class 
-#            - send the parent class as a parameter 
-
-# e.g. 
-
-# class Student(Person):
-#    def __init__(self, fname, lname):
-#      Person.__init__(self, fname, lname)
-
-# x = Student("Mike", "Olsen")
-
-# - Define only what you need to add or change in the new class
-
-# ------------- UML REPRESENTATION ----------------
-
-# - Unified Modeling Language
-# - general-purpose visual modelling language 
-# - intended to provide a standard way to visualise the design of a system
-
-# BASE
-# ^
-# |
-# extends
-# |
-# DERIVED 
-
-# -------------- METHOD OVERRIDING IN PYTHON ----------------
-
-# - occurs when a child class defines a method with the same name as a method in its parent class
-# - allows the child class to provide its own implementation while retainng the inheritance relationship 
-# - used to customise or extend the behaviour of inherited methods 
-
-# e.g. 
-
-# class Animal:
-#     def display(self):
-#        print("This is an animal")
-
-# class Dog(Animal)
-#    def display(self):
-#       print("This is a dog")
-
-# obj = Dog()
-# obj.display()
-
-# # OUTPUT = This is a dog 
-#    - "Animal class" contains a method named display()
-#    - Dog inherits from Animal and defines its own display() method 
-#    - Since the child class has a method with the same name, it overrides the parent class method
-#    - When obj.display() is called, Python executes the version defined in the Dog class 
-
-
-
-# ------------ SUPER METHOD super() --------------
-
-# - When you define an __init__() method for a child class, you're replacing the __init__() method of its parents class
-# - Parent class not called automatically
-# - NEED TO CALL IT EXPLICITLY 
-
-# 1) The super() gets the definition of the parent class 
-
-# 2) The __init__() method calls the Parent.__init__() method
-#               - takes care of passing the slef argument to the superclass
-
-# 3) The self.newargument = newargument line is the new code that makes the child different from the parent class 
-
-# --------- SUPER METHOD SYNTAX ----------
-
-# e.g.
-
-# class Parent: 
-#     def __init__(self, txt): 
-#        self.txt = txt 
-
-#     def printmessage(self): 
-#        print(self.txt)
-
-# class Child(Parent):
-#     def __init__(self, txt):
-#         super().__init__(txt)
-
-# x = Child("Hello, and welcome!")
-
-# x.printmessage()
-
-# ---------- Using the Name of the Parent class ------------
-
-# # parent class 
-
-# class Machine(object): 
-
-#     # __init___ is known as the constructor
-#     def __init__(self, name, idnumber):
-#         self.name = name
-#         self.idnumber = idnumber
-
-#     defdisplay(self):
-#        print(self.name)
-#        print(self.idnumber)
-
-
-# -------------- Mro METHOD ---------------
-
-# - Python built in method to check for inheritance
-
-# Childclass.mro()
-
-# SYNTAX
-
-# print(help(class))
-
-
-
-# ------------- MULTIPLE INHERITANCE --------------
-
-# - Child class can have multiple parents
-# - Objects can inherit from mulitple parent classes 
-# - If your class refers to a method or attribute that it doesn't have, Python will look in all the parents
-
-
-# e.g. 
-# PARENT CLASSES = RADIO, CAMERA
-# CHILD CLASS = CELL PHONE
-
-
-# """
-
-# class radio(object):
-
-#     def __init__(self, make, model, channel):
-#         self.make = make
-#         self.model = model
-#         self.channel = channel
-
-#     def tuneChannel(self):
-#         print("Tuning my radio to BBC")
-
-# class camera(object):
-
-#     def __init__(self, name, lens, pixel):
-#         self.name = name
-#         self.lens = lens
-#         self.pixel = pixel
-
-#     def snapmethod(self):
-#         print("parent method for snapping")
-
-
-# class Cellphone(radio, camera):
-#     def __init__(self, make, model, channel, name, lens, pixel):
-#      radio.__init__(self, make, model, channel)
-#      camera.__init__(self, make, lens, pixel)
-#      self.year = year
-
-#     def info(self):
-#         print("This is a child class of radio and camera")
-#         print("Phone Make {}, Model {}, Channel:{}, Camera Name: {} ")
-#         format(self.make, self.model, self.channel, self.name)
-#         print("The lens:{}, the pixels: {} and the year{}".format(
-#             self.lens, self.pixels, self.year
-#         ))
-
-
-# class Cellphone(camera, radio):
-#     def __init__(self, make, model, channel, name, lens, pixel, phone):
-#         radio.__init__(self, make, model, channel)
-#         camera.__init__(self, name, lens, pixel)
-#         self.phone = phone
-        
-#     def info(self):
-#         print("This is a child class of radio and camera")
-
-# phone = Cellphone("Apple", "18 pro", 76.5, "Sony", "QLED", "4K", 2026)
-# # phone = Cellphone("Sony", "S2340", 88, "Canon", "D5000", 4320, "Samsung")
-# phone.info()
-# phone.tuneChannel()
-# phone.snapmethod()
-
-# """
-
-# -------- PYTHON ARITHMETIC OPERATORS ---------
-
-# // Floor Division = Floor-divides a by b, dropping any fractional remainder 
-
-
-
-# --------- PYTHON (RELATIONAL) COMPARISON OPERATORS ----------
-
-# == Equal-Equal = If the values of two operands are equal, then the condition becomes true
-# != Not equal = If values of two operands are not equal, then condition becomes true 
-# > Greater than 
-# < Less than 
-# >= Greater than / Equal to
-# <= Less than / Equal to 
-
-
-# ------------ ASSIGNMENT OPERATORS --------------
-
-# OPERATORS
-
-# = (Assigns values from right side operands to left side operand)
-# += Add AND (Adds right operand to the left operand and assign the result to the left operand)
-# -= Subtract AND (Subtracts right operand from the left operand and assigns the result to left operand)
-# *= Multiply AND (Multiples right operand with the left operand and assigns the result to left operand)
-# /= Divide AND (Divides left operand with the right operand and assign the result to left operand)
-# %= Modulus AND (Takes Modulus using two operands and assign the result to left operand)
-# **= Exponent AND (Performs exponential (power) calculation on operators and assign value to the left operand)
-# """
-
-
-#print(33 % 7)
-
-# """
-
-# ---------------- LOGICAL OPERATORS ------------------
-
-# - Useful when checking a condition is true or not 
-# - ALL logical operators return a Boolean value True or False
-#       - depending on the condition in which it is used 
-
-# AND = True if both the operands are True, otherwise will return False
-# OR = True if either of the operands is true, returns False if both values are false
-# NOT = True if the operand is False (always returns False for nonzero value) 
-# """
-
-#print((1+1)**(5-2))
-
-# a = 10 ; b = 20
-
-# print(a <= b) # TRUE   # a is less than b
-# print(b // a) # 2  # 20 / 10 = 2 
-# print(b % a) #0  # 10 divides into 20 perfectly with no remainders
-# print(a == b)  # False    # a and b are not equal 
-# print(b != a) # True  # a and b are not equal
-# a -= 15 
-# print(a)  # 10 - 15 = -5  #a = -5 
-# b *= 3 
-# print(b)  #20 * 3 = 60
-
-
-# """
-
-# ------------ MEMBERSHIP OPERATORS ------------
-
-# - test for membership in a sequence
-#          - strings
-#          - tuples
-# - checks whether given value or variable is present in a given sequence
-#        - if present will return True else False 
-
-
-# IN OPERATOR:
-# - Evaluates to True if it finds a variable in the specified sequence and False otherwise
-
-# NOT IN:
-# - Evaluates to True if it does not find a variable in the specified sequence, False otherwise 
-
-# -------------- IDENTITY OPERATORS ---------------
-
-# REFERENCE-QUALITY OPERATOR 
-
-# IS:  
-# Evaluates to True if the variables on either side of the operator point to the same object and False otherwise 
-# - returns to Boolean True or False 
-# - returns True if the memory address' first value is equal to the second value
-# - otherwise returns False
-# - can be be used to check whether both variables are pointing to the same object or not
-
-# IS NOT:
-# Evaluates to False if the variables on either side of the operator point to the same object and True otherwise 
-# - returns Boolean values either True or False
-# - returns True if the first value is not equal to the second value
-# - otherwise, returns False 
-
-
-# ----------- BITWISE OPERATORS -------------
-
-# - used to compare (binary) numbers:
-
-# & AND (Sets each bit to 1 if both bits are 1)
-#     - performs logical and operation on the integer value after converting an integer to a binary value
-#     - gives result as a decimal value 
-#     - returns True only if both operands are True
-
-# | OR (Sets each bit to 1 if one of two bits is 1)
-#     - performs logical OR operation on the integer value after converting integer value to binary value
-#     - gives the result a decimal value
-#     - returns False only if both operands are False
-
-# ^ XOR (Sets each bit to 1 if only one of two bits is 1)
-#     - every integer converted to binary 
-#     - result is only True when two variables have different values
-
-# ~ NOT [1's complement] (Inverts all the bits)
-
-# << Zero fill left shift (Shift left by pushing zeros in from the right and let the leftmost bits fall off)
-
-# >> Signed right shift (Shift right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off)
-
-
-# ACTIVITY
-
 # 1) data1 == data3  
 #  data2 != data3    
 
@@ -1875,238 +1475,6 @@
 # --------------- WEEK 6 SESSION 1 -----------------
 
 # --------------- EXTERNAL LIBRARIES ------------------
-
-# - collection of modules / block of functions
-# - carry out certain tasks 
-
-# -- STANDARD MODULES: --
-
-# - datetime, time = module that presents current time, month and year
-# - os = interacting with the operating system
-# - random = generates random numbers 
-# - statistics = provides statistics functions like mean, median, mode and variance
-# - sqlite3 = SQLite relational database access (provides an interface to SQLite, lightweight disk-based database)
-# - string = process characters and string
-# - csv = work with spreadsheets
-# - sys = command-line argument processing
-
-# -- OPERATING SYSTEM (OS): --
-
-# - module helps with OS interaction through various functions
-# - can help in working with directories
-# - directory = collection of files and sub-directories
-
-# -- WORKING WITH OS: -- 
-
-# - Get the name of our current working directory: 
-
-# import os                             #imports the library 
-# print(os.getwcd())                                            # function in os
-# print("This is the current working directory", os.getcwd())
-
-# Output: '/home/student'/
-
-# -- GET THE NAME OF THE OS: --
-
-# - prints name of the family
-# - IEEE specifies for OS
-
-# import os
-# print("The Portable Operating System Interface (POSIX)", os.name)     # family of standards specified by the IEEE Computer Society, maintains compatibility between OS
-
-# Output: posix
-
-# -- LIST DIRECTORY (listdir): -- 
-
-# - checks every file and directory present in current director
-
-# print("List of all files in directory", os.listdir())
-# print("List of all files in directory", os.listdir('/'))
-
-# -- GET PROCESS ID -- 
-
-# - function which returns process id of current process
-# - print("The current process ID", os.getpid())
-
-# -- CREATE A DIRECTORY (mkdir) --
-
-# - basic function
-# - creates new directory where command executed 
-
-# import os 
-# os.mkdir("/home/runner/PythonDevClass/newFolder")
-
-# """
-
-# # ======== MATPLOTLIB: BAR CHART =========
-# # NEED TO INSTALL TURTLE AND MATPLOTLIB EXTENSIONS 
-
-# """
-
-# import matplotlib.pyplot as plt 
-
-# # Sample data 
-# departments = ['HR', 'IT', 'Sales', 'Finance']
-# employees = [10, 25, 15, 12]
-
-# # Create bar chart 
-# plt.bar(departments, employees, color='skyblue')
-
-# #Add labels and title
-# plt.xlabel('Departments')
-# plt.ylabel('Number of Employees')
-# plt.title('Employee Distribution by Department')
-
-# # Show chart 
-# plt.show()
-# """
-
-# """
-
-# ============= HISTOGRAM ==============
-
-# e.g. 
-
-# import matplotlib.pyplot as plt
-
-# # Sample data (ages)
-# ages = [22, 25, 30, 30, 31, 34, 35, 36, 40, 41, 42, 45, 46, 50, 51, 52]
-
-# # Create histogram
-# plt.hist(ages, bins=5, color='lightgreen', edgecolor='black')
-
-# # Add labels and title 
-# plt.xlabel('Age Range')
-# plt.ylabel('Frequency')
-# plt.title('Age Distribution of Employees')
-
-# # Show Chart 
-# plt.show()
-
-# =============== PIE CHART ==================
-
-# import matplotlib.pyplot as plt
-
-# # Sample data
-# departments = ['HR', 'IT', 'Sales', 'Finance']
-# sizes = [10, 25, 15, 12]
-# colors = ['gold', 'skyblue', 'lightgreen', 'lightcoral']
-
-# # Create pie chart
-# plt.pie(sizes, labels=departments, colors=colors, autopct='%1.1f%%', startangle=90)
-
-# #Equal aspect ratio ensures pie is drawn as a circle
-# plt.axis('equal')
-# plt.title('Employee Percentage by Department')
-
-# # Show chart
-# plt.show()
-
-# ============== MULTIPLE PLOTS ===============
-
-# import matplotlib.pyplot as plt
-
-# x = [1, 2, 3, 4, 5]
-# y = [2, 4, 6, 8, 10]
-
-# plt.subplot(2,2,1)
-# plt.bar(x,y)
-# plt.title("Bar Chart")
-# plt.subplot(2, 2, 2)
-# plt.hist(y)
-# plt.title("Histogram")
-
-
-# ================= TURTLE LIBRARY ================
-
-# - enables users to create pictures and shapes by providing them with a virtual canvas
-# - 1. initialise a variable to represent the turtle object
-# - e.g import turtle
-# Oogway = turtle.Turtle()
-# - can draw a line from your current position to any other arbitrary position on the screen
-#  - uses the cartesian coordinate system
-# - to move the turtle to any other area on the screen, use goto()
-# - initial position is (0,0)
-#   - e.g. Oogway.goto(100,100)     #goto(+X , +Y)
-# - Closing: turtle.done()
-
-
-# ============= BUILT-IN PYTHON LIBRARIES =============
-
-# - Sum()  = adds the items of an iterable       Sum(iterable, start)
-# - Sorted    = sorts any iterable sequence    Sorted(iterable, reverse)
-# - Map      = define a function applicable to iterable sequences        Map(function, iterable)
-
-# """
-
-
-# """
-
-# ============================= WEEK 6 SESSION 2 =================================
-
-# --------- LIBRARIES & TIME -----------
-
-# ============ METHODS OF IMPORT ================
-
-# 1. DIRECT
-# import random
-
-# mylist = ["umm", "yeah", "hah"]
-# print(random.choice(mylist))
-
-# 2. USING FROM
-
-# from random import choice
-
-# mylist = ["umm", "yeah", "hah"]
-# choice(mylist)
-
-# 3. INSIDE FUNCTION
-
-# mylist = ["umm", "yeah", "hah"]
-
-# def pick():
-#     import random
-#     return random.choice(mylist)
-
-# ============ IMPORT A MODULE WITH ANOTHER NAME =============
-
-# import mylibrary as "bee"
-
-# mylist = bee.pick()
-# print("My favourite word", mylist)
-
-
-# ============= BUILDING OWN LIBRARY ==============
-
-# 1. BUILD PYTHON CODE
-# 2. SAVE FILE AND GIVE IT A NAME IN A DIRECTORY
-
-# from random import choice 
-
-# places = ["etc", "this", "that"]
-
-# def pickLocation():
-#     return choice(places)
-
-# 3. OPEN ANOTHER PYTHON FILE WITHIN THE SAME DIRECTORY
-# 4. REFERENCE THE CODE
-
-# import mylibrary                 #the file you built 
-
-# place = mylibrary.pick()
-# print("Let's go to", place)
-
-# """
-
-# # import random
-
-# # mylist = ["umm", "yeah", "hah"]
-# # print(random.choice(mylist))
-
-
-# """
-# =================== REGULAR EXPRESSION (RE) LIBRARY =========================
 
 # - Regex / Regular Expression: 
 #     - defines a pattern for searching / manipulating strings 
@@ -2247,42 +1615,6 @@ import tkinter
 
 # window.mainloop()
 """
-
-=============== TKINTER ===============
-
-
-
-
-"""
-
-# root = tkinter.Tk()
-
-# def printInput():
-#     print("HI")
-
-# label = tkinter.Label(root, text = "I am a label widget")
-# button = tkinter.Button(root, text = "I am a button")
-# label.pack()
-# button.pack()
-
-
-
-# window_colour = "#2f88ff"
-# root.config(bg=window_colour)
-# inputtxt = tkinter.Text(root, height = 5, width = 20)
-# inputtxt.pack()
-
-# printButton = tkinter.Button(root, text = "Print", command = printInput)
-# printButton.pack()
-
-
-
-# root.geometry("400x200")
-# root.resizable(10,10)
-# root.title("TextBox Input")
-# root.mainloop()
-
-"""
 =========== WEEK 7 SESSION 2 ============
 
 
@@ -2314,43 +1646,121 @@ import tkinter
 
 # ======================================
 
-import tkinter as tk
-parent = tk.Tk()
-parent.title('Find & Replace')
-tk.Label(parent, text="Find:").grid(row=0, column=0, sticky='e')
-tk.Entry(parent, width=60).grid(row=0, column=1, padx=2, pady=2, sticky='we', columnspan=9)
+# import tkinter as tk
+# parent = tk.Tk()
+# parent.title('Find & Replace')
+# tk.Label(parent, text="Find:").grid(row=0, column=0, sticky='e')
+# tk.Entry(parent, width=60).grid(row=0, column=1, padx=2, pady=2, sticky='we', columnspan=9)
 
-tk.Label(parent, text = "Replace:").grid(row=1, column=0, sticky= tk.W)
-tk.Entry(parent, width=60).grid(row=1, column =1, padx=2, pady=2, sticky= tk.W , columnspan =9)
+# tk.Label(parent, text = "Replace:").grid(row=1, column=0, sticky= tk.W)
+# tk.Entry(parent, width=60).grid(row=1, column =1, padx=2, pady=2, sticky= tk.W , columnspan =9)
 
-tk.Button(parent, text="Find").grid( row=0,
-                                     column=10, sticky='e' + 'w', padx=2, pady=2)
-tk.Button(parent, text="Find All").grid(row=1,
-                                         column=10, sticky='e' + 'w', padx=2
-                                         )
+# tk.Button(parent, text="Find").grid( row=0,
+#                                      column=10, sticky='e' + 'w', padx=2, pady=2)
+# tk.Button(parent, text="Find All").grid(row=1,
+#                                          column=10, sticky='e' + 'w', padx=2
+#                                          )
 
-tk.Button(parent, text="Replace").grid(row=2, column=10, sticky='e' + 'w', padx=2)
-tk.Button(parent, text="Replace All").grid(row=3, column=10, sticky='e' + 'w', padx=2)
+# tk.Button(parent, text="Replace").grid(row=2, column=10, sticky='e' + 'w', padx=2)
+# tk.Button(parent, text="Replace All").grid(row=3, column=10, sticky='e' + 'w', padx=2)
 
-tk.Checkbutton(parent, text='Match whole word only').grid(row=2, column=1, columnspan=4, sticky='w')
-tk.Checkbutton(parent, text='Match Case').grid(row=3, column=1, columnspan=4, sticky='w')
+# tk.Checkbutton(parent, text='Match whole word only').grid(row=2, column=1, columnspan=4, sticky='w')
+# tk.Checkbutton(parent, text='Match Case').grid(row=3, column=1, columnspan=4, sticky='w')
 
-tk.Checkbutton(parent, text='Wrap around').grid(row=4,
-                                                 column=1, columnspan=4, sticky='w'
-                                                 )
-tk.Label(parent, text="Direction:").grid(row=2, column=6, sticky='w')
-tk.Radiobutton(parent, text='Up', value=1).grid(row=3,
-                                                 column=6, columnspan=6, sticky='w'
-                                                 )
+# tk.Checkbutton(parent, text='Wrap around').grid(row=4,
+#                                                  column=1, columnspan=4, sticky='w'
+#                                                  )
+# tk.Label(parent, text="Direction:").grid(row=2, column=6, sticky='w')
+# tk.Radiobutton(parent, text='Up', value=1).grid(row=3,
+#                                                  column=6, columnspan=6, sticky='w'
+#                                                  )
 
-tk.Radiobutton(parent, text='Down', value=2).grid(row=3,
-                                                   column=7, columnspan=2, sticky='e'
-                                                   )
+# tk.Radiobutton(parent, text='Down', value=2).grid(row=3,
+#                                                    column=7, columnspan=2, sticky='e'
+#                                                    )
 
-root = tk.Tk()
-tk.Button(root, text="Absolute Placement").place(x=20, y=10)
-tk.Button(root, text="Relative").place(relx=0.8, rely=0.2, relwidth=0.5, width=10, anchor=tk.NE)
-root.mainloop()
+# root = tk.Tk()
+# tk.Button(root, text="Absolute Placement").place(x=20, y=10)
+# tk.Button(root, text="Relative").place(relx=0.8, rely=0.2, relwidth=0.5, width=10, anchor=tk.NE)
+# root.mainloop()
                                           
 
-parent.mainloop()
+# parent.mainloop()
+
+
+"""
+=============== WEEK 8 SESSION 1 ================
+========= GRAPHICAL USER INTERFACE =========
+
+---- ENTRY WIDGET ----
+
+- basic Tkinter widgets used to get input from the user of an application 
+- allows users to enter a single line of text
+
+widget = Entry(master,opinion,...)
+
+
+
+"""
+
+# import tkinter as tk
+
+# window = tk.Tk()
+# tk.Label(window, text="First Name").grid(row=0)
+# tk.Label(window, text="Last Name").grid(row=1)
+
+# e1 = tk.Entry(window)
+# e2 = tk.Entry(window)
+
+# e1.grid(row=0, column=1)
+# e2.grid(row=1, column=1)
+
+# e1.insert(10, "John")
+# e2.insert(10, "Doe")    # AUTOMATICALLY INSERTS NAME INTO LINES
+
+# window.mainloop()
+
+"""
+---- EXAMPLE 2: GET METHOD ----
+
+- Creates an application that will display the input text through a label widget 
+
+
+"""
+
+import tkinter as tk
+# window = tk.Tk()
+
+# def get_value():
+#     e_text=entry.get()
+#     #Label(window, text=e_text, font= ('Century 15 bold')).pack(pady=20)
+#    #tk.Label(window, text=e1.get() + "\n"+ e2.get(), font= ('Century 15 bold')).grid(row=3,column=3)
+
+# #Create an Entry Widget
+# entry= tk.Entry(window,font=('Century 12'),width=40)
+# entry.pack(pady= 30)
+
+# #Create a button to display the text of entry widget
+
+# button= tk.Button(window, text="Enter",command=get_value)
+# button.pack()
+# window.mainloop()
+
+entry = tk.Entry(window, font=('Century 12'), width=40)
+e2 = tk.Entry(window, font=('Century 12'), width=40)
+entry.pack(pady=10)
+e2.pack(pady=10)
+
+def showDetails():
+    fName = "First Name " + entry.get()
+    Lname = "Last Name " + e2.get()
+    fullName = fName + " " + Lname
+    tk.Label(window, text=fullName).grid(row=4)
+
+SButton = tk.Button(window, text='Show', command=showDetails)
+SButton.grid(row=3, column=0, sticky=tk.W, pady=4)
+
+QButton = tk.Button(window, text='Quit', command=window.quit)
+QButton.grid(row=3, column=1, sticky=tk.W, pady=4)
+
+window.mainloop()
